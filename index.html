@@ -1,0 +1,38 @@
+<style>
+  #ClickMe {
+    /* Make a button like bootstrap */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 8px;
+    background: blue;
+    color: white;    
+  }
+</style>
+
+<button id="ClickMe">
+  Redirect to Website
+</button>
+
+<video width="640" height="480" controls style="display: none;">
+  <source src="Rick Ashley - Never Gonna Give You Up.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<script>
+  var button = document.getElementById("ClickMe");
+  var video = document.getElementsByTagName("video")[0];
+
+  button.addEventListener("click", function() {
+    // remove display: none from video
+    video.style.display = "block";
+
+    if (video.paused) {
+      video.play();
+      button.parentNode.removeChild(button);
+    } else {
+      video.pause();
+      button.innerHTML = "Play";
+    }
+  });
+</script>
